@@ -1,0 +1,27 @@
+for each line in file
+      entity = getEntity(line)
+      concept = get(line)
+      if concept is internal
+           conceptCounts.updateCounter(concept)
+      else
+           externalConcepts.insert(concept)
+      checkMinimality(concept,minimalTypes.get(entity))
+      if concept is minimal
+           minimalTypes.update(entity,concept)
+
+
+for each file in *_countConcept.txt
+      for each line in file
+            concept = getConcept(line)
+            count = getCount(line)
+            conceptCount.updateCount(concept, count) 
+
+for each line in file
+      datatype = getDatatype(line)
+      predicate = getPredicate(line)
+      subject = getSubject(line)
+      analysis.countDatatype(datatype)
+      propertyCount.countPredicate(predicate)
+      for each mintype in akpCount.types(subject)
+            akp = buildAKP(mintype, predicate, datatype)
+            akpCount.updateAkps(akp)
