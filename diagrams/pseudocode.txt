@@ -1,3 +1,4 @@
+step 1
 for each line in file
       entity = getEntity(line)
       concept = get(line)
@@ -9,13 +10,14 @@ for each line in file
       if concept is minimal
            minimalTypes.update(entity,concept)
 
-
+step 2
 for each file in *_countConcept.txt
       for each line in file
             concept = getConcept(line)
             count = getCount(line)
             conceptCount.updateCount(concept, count) 
 
+step 3
 for each line in file
       datatype = getDatatype(line)
       predicate = getPredicate(line)
