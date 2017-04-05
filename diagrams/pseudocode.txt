@@ -27,3 +27,15 @@ for each line in file
       for each mintype in akpCount.types(subject)
             akp = buildAKP(mintype, predicate, datatype)
             akpCount.updateAkps(akp)
+
+step 4
+for each line in file
+      subject = getSubject(line)
+      predicate = getPredicate(line)
+      object = getObject(line)
+      propertyCount.countPredicate(predicate)
+      
+      for each mintypeSubj in minimalTypesOracle.types(subject)
+            for each mintypeObj in minimalTypesOracle.types(object)
+                  akp = buildAKP(mintypeSubj, predicate, mintypeObj)
+                  akpCounts.updateAKPS(akp)
