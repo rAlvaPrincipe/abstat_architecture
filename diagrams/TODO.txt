@@ -1,0 +1,6 @@
+- esempi
+- preprocessing dell'ontologia
+- inferenza
+- cardinalità
+- minimalizzazione properità
+- indicizzazione
