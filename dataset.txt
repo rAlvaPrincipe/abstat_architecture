@@ -1,0 +1,14 @@
+dbr:Antonio_Ronaldo a dbo:SoccerPlayer
+dbr:Antonio_Ronaldo a dbo:Person
+dbr:Antonio_Ronaldo a dul:Agent
+
+dbr:Antonio_Ronaldo rdfs:label "Cristiano Ronaldo"@en 
+dbr:Antonio_Ronaldo dbo:birthDate "02-05-1982"^^xsd:date 
+
+dbr:Antonio_Ronaldo dbo:team dbr:Real_Madrid
+
+dbr:Real_Madrid a dbo:Organisation
+dbr:Real_Madrid a dbo:SoccerClub
+dbr:Real_Madrid a wikidata:Q43229
+
+dbr:Real_Madrid dbp:fullname "Real Madrid Club de Fùtbol"@es
