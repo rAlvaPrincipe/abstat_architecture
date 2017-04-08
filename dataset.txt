@@ -1,4 +1,4 @@
-dbr:Antonio_Ronaldo a dbo:SoccerPlayer
+﻿dbr:Antonio_Ronaldo a dbo:SoccerPlayer
 dbr:Antonio_Ronaldo a dbo:Person
 dbr:Antonio_Ronaldo a dul:Agent
 

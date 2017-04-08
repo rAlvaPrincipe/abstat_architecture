@@ -39,3 +39,59 @@ for each line in file
             for each mintypeObj in minimalTypesOracle.types(object)
                   akp = buildAKP(mintypeSubj, predicate, mintypeObj)
                   akpCounts.updateAKPS(akp)
+
+
+EXAMPLES:
+step 1:
+line "dbr:Antonio_Ronaldo a dbo:Person":
+- conceptCounts: aggiorno il contatore dell'entry "dbo:Person" 
+- minimalTypes: inserirsco l'entry "dbr:Antonio_Ronaldo" e gli associo "dbo:Person" poichè dbo:Person risulta minimale. 
+
+line "dbr:Antonio_Ronaldo a dbo:SoccerPlayer":
+- conceptCounts: aggiorno il contatore dell'entry "dbo:SoccerPlayer"
+- minimalTypes: aggiorno "dbr:Antonio_Ronaldo" eliminando "dbo:Person" e inserendo "dbo:SoccerPlayer"
+
+line "dbr:Antonio_Ronaldo a dul:Agent":
+- externalConcepts: inserisco "dul:Agent"
+- minimalTypes: aggiorno "dbr:Antonio_Ronaldo" aggiungendo "dul:Agent poichè i concetti esterni sono sempre minimali.
+
+
+
+
+step 2:
+file a_countConcepts:
+- conceptCount: incrementa i contatori di "dbo:Person" e "dbo:SoccerPlayer"
+
+file r_countConcepts:
+- conceptCount: incrementa i contatori di "dbo:Organisation" e "dbo:SoccerClub"
+
+
+
+
+
+step 3:
+line "dbr:Antonio_Ronaldo rdfs:label "Cristiano Ronaldo"@en":
+- analysis.counts: aggiungon"rdfs:Literal"
+- propertyCount.counts: aggiungo "rdfs:label"
+- ottenngo i mintypes di dbr:Antonio_Ronaldo e costruisco gli akp
+- akpCount.akps: aggiungo "dbo:SoccerPlayer rdfs:label rdfs:Literal"
+                          "dul:Agent rdfs:label rdfs:Literal"
+
+line "dbr:Antonio_Ronaldo dbo:birthDate "02-05-1982"^^xsd:date": 
+- analysis.counts: aggiungo "xsd:date"
+- propertyCount.counts: aggiungo "dbo:birthDate"
+- ottenngo i mintypes di dbr:Antonio_Ronaldo e costruisco gli akp
+- akpCount.akps: aggiungo "dbo:SoccerPlayer dbo:birthDate xsd:date" 
+                          "dul:Agent dbo:birthDate xsd:date"
+
+
+
+
+step 4:
+line "dbr:Antonio_Ronaldo dbo:team dbr:Real_Madrid": 
+- propertyCount.counts: aggiungo "dbo:team"
+- ottengo i mintypes di dbr:Antonio_Ronaldo e dbr:Real_Madrid e costruisco gli akp
+- akpCount.akps: aggiungo "dbo:SoccerPlayer dbo:team dbo:SoccerClub" 
+                          "dbo:SoccerPlayer dbo:team wikidata:Q43229"
+                          "dul:Agent dbo:team dbo:SoccerClub" 
+                          "dul:Agent dbo:team wikidata:Q43229"
